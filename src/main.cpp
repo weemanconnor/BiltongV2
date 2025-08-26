@@ -4,9 +4,10 @@
 #include <passwordStuff.h>
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
-#include <WiFi.h>
+//#include <WiFi.h>
 #include <Adafruit_AHTX0.h>
 
+//HAN Notes - change aht to something descriptive to the brief
 Adafruit_AHTX0 aht;
 
 
@@ -19,7 +20,7 @@ WiFiServer server(80);
 Adafruit_ST7789 tftScreen = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
 
 const byte LEDPIN    = 13;
-const byte SENSORPIN = A5;
+const byte SENSORPIN = A5; //HAN Notes - shouldn't need this anymore as using aht sensor
 
 void initWiFi() {
   WiFi.mode(WIFI_STA);
@@ -47,7 +48,7 @@ void initWiFi() {
  *********************/
 void setup() {
   pinMode(LEDPIN, OUTPUT);
-  pinMode(SENSORPIN, INPUT);
+  pinMode(SENSORPIN, INPUT); //HAN Notes - shouldn't need this anymore as using aht sensor
 
   Serial.begin(115200);
   delay(5000);
@@ -67,7 +68,8 @@ void setup() {
 
   //------------WiFi setup-----------
   initWiFi();
-
+//HAN Notes - will want to begin the aht sensor as well as the server
+  
   server.begin();
 }
 
