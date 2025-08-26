@@ -8,7 +8,7 @@
 #include <Adafruit_AHTX0.h>
 
 Adafruit_AHTX0 aht;
-//hello
+
 
 ////////////////////////////////////
 const char SSID[]     = SECRET_SSID;
