@@ -83,10 +83,10 @@ void loop() {
         request += c;
         if (c == '\n') {
           // Check request
-          if (request.indexOf("GET /H") >= 0) {
+          if (request.indexOf("GET /fanOn") >= 0) {
             digitalWrite(LEDPIN, HIGH);
           }
-          if (request.indexOf("GET /L") >= 0) {
+          if (request.indexOf("GET /fanOff") >= 0) {
             digitalWrite(LEDPIN, LOW);
           }
 
@@ -120,8 +120,8 @@ void loop() {
             client.println("</style></head><body>");
 
             client.println("<h1>Sensor + LED Control</h1>");
-            client.println("<p><a href=\"/H\"><button>Turn LED ON</button></a></p>");
-            client.println("<p><a href=\"/L\"><button>Turn LED OFF</button></a></p>");
+            client.println("<p><a href=\"/fanOn\"><button>Turn Fan ON</button></a></p>");
+            client.println("<p><a href=\"/fanOff\"><button>Turn Fan OFF</button></a></p>");
 
             client.println("<p>Sensor value: <span id=\"sensor\">---</span></p>");
             client.println("<p>LED is: <span id=\"led\">---</span></p>");
